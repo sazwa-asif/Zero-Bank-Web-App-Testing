@@ -7,9 +7,9 @@ def test_search_returns_results_page(page):
     assert "online" in body or "results" in body
 
 
-#empty search term
+#empty search term 
 def test_search_empty_term_is_handled(page):
-    safe_goto(page, "/search.html?searchTerm=")
+    safe_goto(page, "/search.html?searchTerm=")                  # inspect search bar id
     assert page.locator("#searchTerm").is_visible()
 
 #no results 

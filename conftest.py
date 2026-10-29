@@ -21,10 +21,10 @@ def pytest_runtest_makereport(item, call):
     except Exception:
         pass  # Ignore screenshot errors so tests can finish
 
-
+ 
+ # Set browser size override existing fixture
 @pytest.fixture(scope="session")
 def browser_context_args(browser_context_args):
-    # Set browser size and ignore HTTPS certificate errors
     return {
         **browser_context_args,
         "viewport": {"width": 1280, "height": 720},
@@ -41,3 +41,5 @@ def api_context(playwright):
     )
     yield ctx
     ctx.dispose()
+
+    
